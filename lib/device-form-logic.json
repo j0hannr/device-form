@@ -1,0 +1,84 @@
+[{
+  "value": "heater",
+  "name": "Heizung",
+  "description": "Lege eine Heizung an",
+  "type": "heater",
+  "icon": "heater",
+  "shortcut": true,
+  "_object": {
+    "type": "heater",
+    "name": null,
+    "description": null,
+    "properties": null
+  },
+  "properties": {
+    "temperature": {
+      "type": "number",
+      "unit": "°C",
+      "min": 0,
+      "max": 30,
+      "default": 20
+    },
+    "power": {
+      "type": "number",
+      "unit": "kW",
+      "min": 0,
+      "max": 1000,
+      "default": 12
+    }
+  },
+  "steps": [
+    {
+      "name": "Art",
+      "description": "Wähle die Art der Heizung",
+      "select": "single",
+      "field": "type",
+      "location": "name",
+      "options": [
+        {
+          "name": "Heizkörper",
+          "value": "heaterX"
+        },
+        {
+          "name": "Wärmequelle",
+          "value": "source"
+        }
+      ]
+    },
+    {
+      "name": "Wohnungen",
+      "description": "Wähle die Wohnungen",
+      "select": "multiple",
+      "field": "apatments",
+      "location": "apartments",
+      "options": [
+        {
+          "name": "Wohnung 1",
+          "value": "apartment 1"
+        },
+        {
+          "name": "Wohnung 2",
+          "value": "apartment 2"
+        }
+      ],
+      "option_all": true
+    },
+    {
+      "name": "Radiator",
+      "description": "Wähle die Radiator Art",
+      "select": "single",
+      "field": "radiator",
+      "location": "radiator",
+      "options": [
+        {
+          "name": "Keramik",
+          "value": "keramik"
+        },
+        {
+          "name": "Kunststoff",
+          "value": "kunststoff"
+        }
+      ]
+    }
+  ]
+}]
