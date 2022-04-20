@@ -1,38 +1,20 @@
 [{
   "value": "heater",
   "name": "Heizung",
+  "category": "heater",
   "description": "Lege eine Heizung an",
-  "type": "heater",
   "icon": "heater",
-  "shortcut": true,
   "_object": {
     "type": "heater",
     "name": null,
     "description": null,
     "properties": null
   },
-  "properties": {
-    "temperature": {
-      "type": "number",
-      "unit": "°C",
-      "min": 0,
-      "max": 30,
-      "default": 20
-    },
-    "power": {
-      "type": "number",
-      "unit": "kW",
-      "min": 0,
-      "max": 1000,
-      "default": 12
-    }
-  },
   "steps": [
     {
       "name": "Art",
       "description": "Wähle die Art der Heizung",
       "select": "single",
-      "field": "type",
       "location": "name",
       "options": [
         {
@@ -49,7 +31,6 @@
       "name": "Wohnungen",
       "description": "Wähle die Wohnungen",
       "select": "multiple",
-      "field": "apatments",
       "location": "apartments",
       "options": [
         {
@@ -67,7 +48,6 @@
       "name": "Radiator",
       "description": "Wähle die Radiator Art",
       "select": "single",
-      "field": "radiator",
       "location": "radiator",
       "options": [
         {

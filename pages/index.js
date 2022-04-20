@@ -14,6 +14,7 @@ export default function IndexPage() {
     content: Logic,
     value: null, // value of current form step
     step: undefined, // current step in form
+    option_all: false, // display option to select all fields
   };
   const [reelObject, setReelObject] = useState(reelDefault);
   const [deviceObject, setDeviceObject] = useState({});
@@ -26,19 +27,19 @@ export default function IndexPage() {
    *
    * todo
    * ---
-   * - set device with logic layout (remove given parameter)
-   * - use object to store reel data
-   * - update device object with reel data
-   * - success screen
-   * - checkbox logic
+   * # set device with logic layout (remove given parameter)
+   * # use object to store reel data
+   * # update device object with reel data
+   * # success screen
+   * # checkbox logic
    * - select previous answer on back
    * - all option for checkbox logic
    *
    * requirements
    * ---
-   * - go on button or select
-   * - radio or multi options
-   * - write any data to device properties or meta
+   * # go on button or select
+   * # radio or multi options
+   * # write any data to device properties or meta
    *
    */
 
@@ -93,6 +94,12 @@ export default function IndexPage() {
     setChecked(checked.map((item, index) => (index === position ? !item : item)));
   }
 
+  function selectAll() { 
+    // make all entries in array check true or false
+    setChecked(checked.map((item, index) => checked.every(item => item === true) ? false : true));
+    console.log("select all", checked.map((item, index) => true), checked);
+  }
+
   function updateReelObject(step = reelObject.step ? reelObject.step : 0, thisLogic) {
     if (!thisLogic) {
       thisLogic = Logic.find((x) => x.value === reelObject.form).steps[step];
@@ -111,6 +118,7 @@ export default function IndexPage() {
         select: thisLogic.select,
         location: thisLogic.location,
         step: step,
+        option_all: thisLogic.option_all ? thisLogic.option_all : false,
       }));
   }
 
@@ -122,12 +130,12 @@ export default function IndexPage() {
       </button>
 
       <hr></hr>
-
       {/* selector reel used for everything */}
       {reelObject.state && (
         <div>
           <h1>{reelObject.name}</h1>
           <p>{reelObject.description}</p>
+          {reelObject.state !== "single" && reelObject.option_all && (<button type="button" onClick={() => selectAll()}>Alle auswählen</button>)}
           {reelObject.content &&
             !success &&
             reelObject.content.map((item, index) => {
@@ -138,6 +146,7 @@ export default function IndexPage() {
                     type={reelObject.select === "single" ? "radio" : "checkbox"}
                     id={index + item.name}
                     name="reel"
+                    checked={checked[index]}
                     value={item.value}
                     onChange={() => {
                       currentValue = item.value;
@@ -186,8 +195,7 @@ export default function IndexPage() {
         <summary>Device Object</summary>
         <pre>{JSON.stringify(deviceObject, 0, 2)}</pre>
       </details>
-      {/* <br></br> */}
-      {/* <hr></hr> */}
+
       <details>
         <summary>Reel Object</summary>
         <pre>{JSON.stringify(reelObject.content, 0, 2)}</pre>
