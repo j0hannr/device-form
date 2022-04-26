@@ -9,9 +9,9 @@ export default function IndexPage() {
     state: false, // determining the visibility of the form
     select: "single", // number of choice single || multiple
     location: undefined, // location in the device Object
-    name: "Ein Gerät hinzufügen",
-    description: "Wähle ein Gerät aus",
-    content: Logic,
+    name: "Ein Gerät hinzufügen", 
+    description: "Wähle ein Gerät aus", 
+    content: Logic, // option fields for selection
     value: null, // value of current form step
     step: undefined, // current step in form
     option_all: false, // display option to select all fields
@@ -33,7 +33,7 @@ export default function IndexPage() {
    * # success screen
    * # checkbox logic
    * - select previous answer on back
-   * - all option for checkbox logic
+   * # all option for checkbox logic
    *
    * requirements
    * ---
@@ -94,10 +94,9 @@ export default function IndexPage() {
     setChecked(checked.map((item, index) => (index === position ? !item : item)));
   }
 
+  // select or deselect all checkboxes
   function selectAll() { 
-    // make all entries in array check true or false
     setChecked(checked.map((item, index) => checked.every(item => item === true) ? false : true));
-    console.log("select all", checked.map((item, index) => true), checked);
   }
 
   function updateReelObject(step = reelObject.step ? reelObject.step : 0, thisLogic) {
@@ -105,9 +104,9 @@ export default function IndexPage() {
       thisLogic = Logic.find((x) => x.value === reelObject.form).steps[step];
     }
 
-    setChecked(Array(thisLogic.options?.length).fill(false));
+    thisLogic && setChecked(Array(thisLogic.options?.length).fill(false));
 
-    console.log(thisLogic, checked);
+    // console.log(thisLogic, checked);
 
     thisLogic &&
       setReelObject((reelObject) => ({

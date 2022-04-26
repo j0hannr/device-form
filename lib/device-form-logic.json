@@ -1,64 +1,206 @@
-[{
-  "value": "heater",
-  "name": "Heizung",
-  "category": "heater",
-  "description": "Lege eine Heizung an",
-  "icon": "heater",
-  "_object": {
-    "type": "heater",
-    "name": null,
-    "description": null,
-    "properties": null
+[
+  {
+    "value": "heater",
+    "name": "Heizung",
+    "category": "heater",
+    "description": "Lege eine Heizung an",
+    "icon": "heater",
+    "commment1": "multiple energysources/carrier",
+    "commment2": "flows between devices/units/energycarrier",
+    "device": 0,
+    "layer": 0,
+    "_object": {
+      "type": "heater",
+      "name": null,
+      "description": null,
+      "properties": null
+    },
+    "steps": [
+      {
+        "name": "Art",
+        "description": "Wähle die Art der Heizung",
+        "select": "single",
+        "location": "name",
+        "options": [
+          {
+            "name": "Heizkörper",
+            "value": "heaterX"
+          },
+          {
+            "name": "Wärmequelle",
+            "value": "source"
+          }
+        ]
+      },
+      {
+        "name": "Wohnungen",
+        "description": "Wähle die Wohnungen",
+        "select": "multiple",
+        "location": "apartments",
+        "layer": 1,
+        "options": [
+          {
+            "name": "Wohnung 1",
+            "value": "apartment 1"
+          },
+          {
+            "name": "Wohnung 2",
+            "value": "apartment 2"
+          }
+        ],
+        "option_all": true
+      },
+      {
+        "name": "Radiator",
+        "description": "Wähle die Radiator Art",
+        "select": "single",
+        "location": "radiator",
+        "device": 1,
+        "layer": 2,
+        "comment": "create another device",
+        "_object": {
+          "type": "radiator",
+          "name": null,
+          "description": null,
+          "properties": null
+        },
+        "options": [
+          {
+            "name": "Keramik",
+            "value": "keramik"
+          },
+          {
+            "name": "Kunststoff",
+            "value": "kunststoff"
+          }
+        ]
+      }
+    ]
   },
-  "steps": [
-    {
-      "name": "Art",
-      "description": "Wähle die Art der Heizung",
-      "select": "single",
-      "location": "name",
-      "options": [
-        {
-          "name": "Heizkörper",
-          "value": "heaterX"
-        },
-        {
-          "name": "Wärmequelle",
-          "value": "source"
-        }
-      ]
+  {
+    "name": "Öl-Heizung",
+    "category": "heater",
+    "description": "Lege eine Öl-Heizung an",
+    "icon": "heater",
+    "_object": {
+      "type": "heater",
+      "name": null,
+      "description": null,
+      "properties": null
     },
-    {
-      "name": "Wohnungen",
-      "description": "Wähle die Wohnungen",
-      "select": "multiple",
-      "location": "apartments",
-      "options": [
-        {
-          "name": "Wohnung 1",
-          "value": "apartment 1"
-        },
-        {
-          "name": "Wohnung 2",
-          "value": "apartment 2"
-        }
-      ],
-      "option_all": true
+    "steps": [
+      {
+        "name": "Öl",
+        "description": "Wähle die Art des Öls",
+        "select": "single",
+        "location": "energycarrier",
+        "options": [
+          {
+            "name": "Schweröl",
+            "value": "heavyoil"
+          },
+          {
+            "name": "Diesel",
+            "value": "diesel"
+          }
+        ]
+      },
+      {
+        "name": "Alter der Heizung",
+        "description": "Wie alt ist diese Heizung",
+        "select": "single",
+        "location": "age",
+        "options": [
+          {
+            "name": "5 Jahre",
+            "value": "5 years"
+          },
+          {
+            "name": "10 Jahre",
+            "value": "10 years"
+          },
+          {
+            "name": "15 Jahre",
+            "value": "15 years"
+          },
+          {
+            "name": "20 Jahre",
+            "value": "20 years"
+          }
+        ]
+      },
+      {
+        "name": "Wohnungen",
+        "description": "Wähle die Wohnungen",
+        "select": "multiple",
+        "location": "apartments",
+        "options": [
+          {
+            "name": "Wohnung 1",
+            "value": "apartment 1"
+          },
+          {
+            "name": "Wohnung 2",
+            "value": "apartment 2"
+          }
+        ],
+        "option_all": true
+      }
+    ]
+  },
+  {
+    "name": "Pellet Heizung",
+    "category": "heater",
+    "description": "Lege eine Pellet-Heizung an",
+    "icon": "heater",
+    "_object": {
+      "type": "heater",
+      "name": null,
+      "description": null,
+      "properties": "characteristics of the pallet heater should go here"
     },
-    {
-      "name": "Radiator",
-      "description": "Wähle die Radiator Art",
-      "select": "single",
-      "location": "radiator",
-      "options": [
-        {
-          "name": "Keramik",
-          "value": "keramik"
-        },
-        {
-          "name": "Kunststoff",
-          "value": "kunststoff"
-        }
-      ]
-    }
-  ]
-}]
+    "steps": [
+      {
+        "name": "Alter der Heizung",
+        "description": "Wie alt ist diese Heizung",
+        "select": "single",
+        "location": "age",
+        "options": [
+          {
+            "name": "5 Jahre",
+            "value": "5 years"
+          },
+          {
+            "name": "10 Jahre",
+            "value": "10 years"
+          },
+          {
+            "name": "15 Jahre",
+            "value": "15 years"
+          },
+          {
+            "name": "20 Jahre",
+            "value": "20 years"
+          }
+        ]
+      },
+      {
+        "name": "Wohnungen",
+        "description": "Wähle die Wohnungen",
+        "select": "multiple",
+        "location": "apartments",
+        "options": [
+          {
+            "name": "Wohnung 1",
+            "value": "apartment 1"
+          },
+          {
+            "name": "Wohnung 2",
+            "value": "apartment 2"
+          }
+        ],
+        "option_all": true
+      }
+    ]
+  }
+]
