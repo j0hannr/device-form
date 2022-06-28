@@ -1,0 +1,81 @@
+[
+    {
+        "value": "heater",
+        "name": "Heizung",
+        "category": "heater",
+        "description": "Lege eine Heizung an",
+        "icon": "heater",
+        "devices": [ // devices get precreated
+            {
+                "type": "heater",
+                "device": 0, // temp ID
+                "layer": 0, // layer No. for direction of flow 
+                "name": "Gasheizung",
+                "description": null,
+                "properties": null,
+                "allocation": true // allocation to building or apartments => trigger form
+            },
+            {
+                "device": 1, // temp ID
+                "layer": 1, // layer No. for direction of flow 
+                "name": "Radiator",
+                "type": null,
+                "description": null,
+                "properties": null,
+                "allocation": true // allocation to building or apartments
+            }
+        ],
+        "records": [
+            {
+                // between 0 and 1
+            },
+            {
+                // between 1 and 0
+            }
+        ],
+        // QnA
+        "questions": [
+            {
+                "name": "Art",
+                "description": "Wähle die Art der Heizung",
+                "select": "single",
+                "location": "name",
+                "options": [
+                    {
+                        "name": "Heizkörper",
+                        "value": "heaterX"
+                    },
+                    {
+                        "name": "Wärmequelle",
+                        "value": "source"
+                    }
+                ]
+            },
+            {
+                "name": "Radiator",
+                "description": "Wähle die Radiatoren Art",
+                "select": "single",
+                "location": "radiator",
+                "device": 1,
+                "layer": 2,
+                "comment": "create another device",
+                "_object": {
+                    "type": "radiator",
+                    "name": null,
+                    "description": null,
+                    "properties": null
+                },
+                "options": [
+                    {
+                        "name": "Keramik",
+                        "value": "keramik"
+                    },
+                    {
+                        "name": "Kunststoff",
+                        "value": "kunststoff"
+                    }
+                ]
+            }
+        ]
+    }
+]

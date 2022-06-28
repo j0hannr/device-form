@@ -34,6 +34,9 @@ export default function IndexPage() {
    * # checkbox logic
    * - select previous answer on back
    * # all option for checkbox logic
+   * - structure data in objects per device
+   * - define device object (database ready)
+   * - connect to properties
    *
    * requirements
    * ---

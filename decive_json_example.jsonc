@@ -1,0 +1,19 @@
+[
+    {
+        "id": "device id",
+        "name": "device name", // native
+        "description": "device description", // native
+        "serialnumber": "abc", // native
+        "company": "company Name", // native
+        // timestamps (createdAt, updatedAT, deletedAt)
+        // link to records or do records link to devices?
+        "properties": {
+            // pre defined properties
+            // and custom properties
+            "power": "20920",
+            "powerUnit": "kwh",
+            "processes": [] // names of processes done by device
+            // custom and defined parameter can be set here
+        }
+    }
+]
